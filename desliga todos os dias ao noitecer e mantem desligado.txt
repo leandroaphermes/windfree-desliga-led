@@ -1,0 +1,73 @@
+[
+  {
+    "if": {
+      "and": [
+        {
+          "between": {
+            "value": {
+              "time": {
+                "timeZoneId": "America/Sao_Paulo",
+                "reference": "Now"
+              }
+            },
+            "start": {
+              "time": {
+                "timeZoneId": "America/Sao_Paulo",
+                "reference": "Sunset"
+              }
+            },
+            "end": {
+              "time": {
+                "timeZoneId": "America/Sao_Paulo",
+                "reference": "Sunrise"
+              }
+            }
+          }
+        },
+        {
+          "equals": {
+            "left": {
+              "device": {
+                "devices": [
+                  "<DEVICE_ID>"
+                ],
+                "component": "main",
+                "capability": "samsungce.airConditionerLighting",
+                "attribute": "lighting"
+              }
+            },
+            "right": {
+              "string": "on"
+            }
+          }
+        }
+      ],
+      "then": [
+        {
+          "sleep": {
+            "duration": {
+              "value": {
+                "integer": 5
+              },
+              "unit": "Second"
+            }
+          }
+        },
+        {
+          "command": {
+            "devices": [
+              "<DEVICE_ID>"
+            ],
+            "commands": [
+              {
+                "component": "main",
+                "capability": "samsungce.airConditionerLighting",
+                "command": "off"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+]
