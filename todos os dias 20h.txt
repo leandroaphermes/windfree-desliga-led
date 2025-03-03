@@ -1,0 +1,41 @@
+[
+  {
+    "every": {
+      "specific": {
+        "timeZoneId": "America/Sao_Paulo",
+        "daysOfWeek": [
+          "Sun",
+          "Mon",
+          "Tue",
+          "Wed",
+          "Thu",
+          "Fri",
+          "Sat"
+        ],
+        "reference": "Noon",
+        "offset": {
+          "value": {
+            "integer": 8
+          },
+          "unit": "Hour"
+        }
+      },
+      "actions": [
+        {
+          "command": {
+            "devices": [
+              "<DEVICE_ID>"
+            ],
+            "commands": [
+              {
+                "component": "main",
+                "capability": "samsungce.airConditionerLighting",
+                "command": "off"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+]
